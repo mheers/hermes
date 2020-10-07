@@ -557,7 +557,13 @@ func (dt *Flat) PlainTextTemplate() string {
     <p>{{ $line }}<p>
   {{ end }}
 {{ end }}
-<p>{{.Email.Body.Signature}},<br>{{.Hermes.Product.Name}} - {{.Hermes.Product.Link}}</p>
+<p>
+{{ if .Email.Body.Signature }}
+  {{.Email.Body.Signature}},
+  <br />
+  {{.Hermes.Product.Name}} - {{.Hermes.Product.Link}}
+{{ end }}
+</p>
 
 <p>{{.Hermes.Product.Copyright}}</p>
 `
