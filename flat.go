@@ -282,13 +282,13 @@ func (dt *Flat) HTMLTemplate() string {
           <!-- Logo -->
           <tr>
             <td class="email-masthead">
-              <a class="email-masthead_name" href="{{.Hermes.Product.Link}}" target="_blank">
+                {{ if .Hermes.Product.Link }}<a class="email-masthead_name" href="{{.Hermes.Product.Link}}" target="_blank">{{ end }}
                 {{ if .Hermes.Product.Logo }}
                   <img src="{{.Hermes.Product.Logo | url }}" class="email-logo" />
                 {{ else }}
                   {{ .Hermes.Product.Name }}
                 {{ end }}
-                </a>
+                {{ if .Hermes.Product.Link }}</a>{{ end }}
             </td>
           </tr>
 
