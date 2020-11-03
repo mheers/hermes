@@ -377,7 +377,11 @@ func (dt *Flat) HTMLTemplate() string {
                       {{ with .Email.Body.Actions }}
                         {{ if gt (len .) 0 }}
                           {{ range $action := . }}
-                            <p>{{ $action.Instructions }}</p>
+                            {{ if (ne $action.InstructionsMarkdown "") }}
+                              {{ $action.InstructionsMarkdown.ToHTML }}
+                            {{ else }}
+                              <p>{{ $action.Instructions }}</p>
+                            {{ end }}
                             {{safe "<!--[if mso]>" }}
                             {{ if $action.Button.Text }}
                             <div style="margin: 30px auto">
@@ -541,7 +545,11 @@ func (dt *Flat) PlainTextTemplate() string {
   {{ with .Email.Body.Actions }} 
     {{ range $action := . }}
       <p>
-        {{ $action.Instructions }} 
+        {{ if (ne $action.InstructionsMarkdown "") }}
+          {{ $action.InstructionsMarkdown.ToHTML }}
+        {{ else }}
+          {{ $action.Instructions }}
+        {{ end }}
         {{ if $action.InviteCode }}
           {{ $action.InviteCode }}
         {{ end }}

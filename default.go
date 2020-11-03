@@ -376,7 +376,11 @@ func (dt *Default) HTMLTemplate() string {
                       {{ with .Email.Body.Actions }}
                         {{ if gt (len .) 0 }}
                           {{ range $action := . }}
-                            <p>{{ $action.Instructions }}</p>
+                            {{ if (ne $action.InstructionsMarkdown "") }}
+                              {{ $action.InstructionsMarkdown.ToHTML }}
+                            {{ else }}
+                              <p>{{ $action.Instructions }}</p>
+                            {{ end }}
                             {{ $length := len $action.Button.Text }}
                             {{ $width := add (mul $length 9) 20 }}
                             {{if (lt $width 200)}}{{$width = 200}}{{else if (gt $width 570)}}{{$width = 570}}{{else}}{{end}}
@@ -543,7 +547,11 @@ func (dt *Default) PlainTextTemplate() string {
   {{ with .Email.Body.Actions }} 
     {{ range $action := . }}
       <p>
-        {{ $action.Instructions }} 
+        {{ if (ne $action.InstructionsMarkdown "") }}
+          {{ $action.InstructionsMarkdown.ToHTML }}
+        {{ else }}
+          {{ $action.Instructions }}
+        {{ end }}
         {{ if $action.InviteCode }}
           {{ $action.InviteCode }}
         {{ end }}
