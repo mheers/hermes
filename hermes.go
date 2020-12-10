@@ -65,6 +65,7 @@ type Markdown template.HTML
 type Body struct {
 	Name          string   // The name of the contacted person
 	Intros        []string // Intro sentences, first displayed in the email
+	IntroMarkdown Markdown // Intro sentences (in Markdown), first displayed in the email
 	Dictionary    []Entry  // A list of key+value (useful for displaying parameters/settings/personal info)
 	Table         Table    // Table is an table where you can put data (pricing grid, a bill, and so on)
 	Actions       []Action // Actions are a list of actions that the user will be able to execute via a button click
