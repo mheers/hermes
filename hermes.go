@@ -14,6 +14,7 @@ import (
 // Hermes is an instance of the hermes email generator
 type Hermes struct {
 	Theme              Theme
+	Style              Style
 	TextDirection      TextDirection
 	Product            Product
 	DisableCSSInlining bool
@@ -75,6 +76,37 @@ type Body struct {
 	Signature     string   // Signature for the contacted person (default to 'Yours truly')
 	Title         string   // Title replaces the greeting+name when set
 	FreeMarkdown  Markdown // Free markdown content that replaces all content other than header and footer
+}
+
+// Style is used to change some colors from the "default" (here the "custom") template
+type Style struct {
+	ActionButtonBackgroundColor            string `json:"ActionButtonBackgroundColor"`
+	ActionButtonColor                      string `json:"ActionButtonColor"`
+	AppNameColor                           string `json:"AppNameColor"`
+	BlockquoteBorderLeftColor              string `json:"BlockquoteBorderLeftColor"`
+	BlockquoteCiteColor                    string `json:"BlockquoteCiteColor"`
+	BlockquoteParagraphColor               string `json:"BlockquoteParagraphColor"`
+	BodyBackgroundColor                    string `json:"BodyBackgroundColor"`
+	BodyColor                              string `json:"BodyColor"`
+	BodySubBorderTopColor                  string `json:"BodySubBorderTopColor"`
+	DataTableTableDataColor                string `json:"DataTableTableDataColor"`
+	DataTableTableHeadingBorderBottomColor string `json:"DataTableTableHeadingBorderBottomColor"`
+	DataTableTableHeadingColor             string `json:"DataTableTableHeadingColor"`
+	EmailBodyBackgroundColor               string `json:"EmailBodyBackgroundColor"`
+	EmailBodyBorderBottomColor             string `json:"EmailBodyBorderBottomColor"`
+	EmailBodyBorderTopColor                string `json:"EmailBodyBorderTopColor"`
+	EmailWrapperBackgroundColor            string `json:"EmailWrapperBackgroundColor"`
+	FooterColor                            string `json:"FooterColor"`
+	H1Color                                string `json:"H1Color"`
+	H2Color                                string `json:"H2Color"`
+	H3Color                                string `json:"H3Color"`
+	InviteCodeBackgroundColor              string `json:"InviteCodeBackgroundColor"`
+	InviteCodeColor                        string `json:"InviteCodeColor"`
+	LinkColor                              string `json:"LinkColor"`
+	ParagraphColor                         string `json:"ParagraphColor"`
+	TableDataColor                         string `json:"TableDataColor"`
+	TableHeadingBorderBottomColor          string `json:"TableHeadingBorderBottomColor"`
+	TableHeadingColor                      string `json:"TableHeadingColor"`
 }
 
 // ToHTML converts Markdown to HTML
