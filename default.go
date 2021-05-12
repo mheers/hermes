@@ -385,7 +385,7 @@ func (dt *Default) HTMLTemplate() string {
                               <p>{{ $action.Instructions }}</p>
                             {{ end }}
                             {{ $length := len $action.Button.Text }}
-                            {{ $width := add (mul $length 9) 20 }}
+                            {{ $width := add (mul $length 9) 100 }}
                             {{if (lt $width 200)}}{{$width = 200}}{{else if (gt $width 570)}}{{$width = 570}}{{else}}{{end}}
                               {{safe "<!--[if mso]>" }}
                               {{ if $action.Button.Text }}
