@@ -76,12 +76,12 @@ func (dt *Flat) HTMLTemplate() string {
       background-color: #FFF;
     }
     .email-body_inner {
-      width: 570px;
+      width: {{ .Hermes.Style.EmailBodyWidth }}px;
       margin: 0 auto;
       padding: 0;
     }
     .email-footer {
-      width: 570px;
+      width: {{ .Hermes.Style.EmailBodyWidth }}px;
       margin: 0 auto;
       padding: 0;
       text-align: center;
@@ -294,7 +294,7 @@ func (dt *Flat) HTMLTemplate() string {
           <!-- Email Body -->
           <tr>
             <td class="email-body" width="100%">
-              <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0">
+              <table class="email-body_inner" align="center" width="{{ .Hermes.Style.EmailBodyWidth }}" cellpadding="0" cellspacing="0">
                 <!-- Body content -->
                 <tr>
                   <td class="content-cell">
@@ -390,7 +390,7 @@ func (dt *Flat) HTMLTemplate() string {
                               <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" 
                                 xmlns:w="urn:schemas-microsoft-com:office:word" 
                                 href="{{ $action.Button.Link }}" 
-                                style="height:45px;v-text-anchor:middle;width:570px;background-color:{{ if $action.Button.Color }}{{ $action.Button.Color }}{{else}}#00948D{{ end }};"
+                                style="height:45px;v-text-anchor:middle;width:{{ $.Hermes.Style.EmailBodyWidth }}px;background-color:{{ if $action.Button.Color }}{{ $action.Button.Color }}{{else}}#00948D{{ end }};"
                                 arcsize="0%" 
                                 {{ if $action.Button.Color }}strokecolor="{{ $action.Button.Color }}" fillcolor="{{ $action.Button.Color }}"{{ else }}strokecolor="#00948D" fillcolor="#00948D"{{ end }}
                                 >
@@ -487,7 +487,7 @@ func (dt *Flat) HTMLTemplate() string {
           </tr>
           <tr>
             <td>
-              <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0">
+              <table class="email-footer" align="center" width="{{ .Hermes.Style.EmailBodyWidth }}" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-cell">
                     <p class="sub center">

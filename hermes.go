@@ -92,6 +92,7 @@ type Style struct {
 	DataTableTableDataColor                string `json:"DataTableTableDataColor"`
 	DataTableTableHeadingBorderBottomColor string `json:"DataTableTableHeadingBorderBottomColor"`
 	DataTableTableHeadingColor             string `json:"DataTableTableHeadingColor"`
+	EmailBodyWidth                         int    `json:"EmailBodyWidth"`
 	EmailBodyBackgroundColor               string `json:"EmailBodyBackgroundColor"`
 	EmailBodyBorderBottomColor             string `json:"EmailBodyBorderBottomColor"`
 	EmailBodyBorderTopColor                string `json:"EmailBodyBorderTopColor"`
@@ -182,7 +183,7 @@ func setDefaultHermesValues(h *Hermes) error {
 		TextDirection: defaultTextDirection,
 		Product: Product{
 			Name:        "",
-			Copyright:   "Copyright © 2020. All rights reserved.",
+			Copyright:   "Copyright © 2023. All rights reserved.",
 			TroubleText: "If you’re having trouble with the button '{ACTION}', copy and paste the URL below into your web browser.",
 		},
 	}

@@ -76,12 +76,12 @@ func (dt *Custom) HTMLTemplate() string {
       background-color: {{ .Hermes.Style.EmailBodyBackgroundColor }};
     }
     .email-body_inner {
-      width: 570px;
+      width: {{ .Hermes.Style.EmailBodyWidth }}px;
       margin: 0 auto;
       padding: 0;
     }
     .email-footer {
-      width: 570px;
+      width: {{ .Hermes.Style.EmailBodyWidth }}px;
       margin: 0 auto;
       padding: 0;
       text-align: center;
@@ -294,7 +294,7 @@ func (dt *Custom) HTMLTemplate() string {
           <!-- Email Body -->
           <tr>
             <td class="email-body" width="100%">
-              <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0">
+              <table class="email-body_inner" align="center" width="{{ .Hermes.Style.EmailBodyWidth }}" cellpadding="0" cellspacing="0">
                 <!-- Body content -->
                 <tr>
                   <td class="content-cell">
@@ -386,7 +386,7 @@ func (dt *Custom) HTMLTemplate() string {
                             {{ end }}
                             {{ $length := len $action.Button.Text }}
                             {{ $width := add (mul $length 9) 100 }}
-                            {{if (lt $width 200)}}{{$width = 200}}{{else if (gt $width 570)}}{{$width = 570}}{{else}}{{end}}
+                            {{if (lt $width 200)}}{{$width = 200}}{{else if (gt $width $.Hermes.Style.EmailBodyWidth )}}{{$width = $.Hermes.Style.EmailBodyWidth }}{{else}}{{end}}
                               {{safe "<!--[if mso]>" }}
                               {{ if $action.Button.Text }}
                                 <div style="margin: 30px auto;v-text-anchor:middle;text-align:center">
@@ -490,7 +490,7 @@ func (dt *Custom) HTMLTemplate() string {
           </tr>
           <tr>
             <td>
-              <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0">
+              <table class="email-footer" align="center" width="{{ .Hermes.Style.EmailBodyWidth }}" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-cell">
                     <p class="sub center">
