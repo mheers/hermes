@@ -97,6 +97,7 @@ type Style struct {
 	EmailBodyBorderBottomColor             string `json:"EmailBodyBorderBottomColor"`
 	EmailBodyBorderTopColor                string `json:"EmailBodyBorderTopColor"`
 	EmailWrapperBackgroundColor            string `json:"EmailWrapperBackgroundColor"`
+	FooterBackgroundColor                  string `json:"FooterBackgroundColor"`
 	FooterColor                            string `json:"FooterColor"`
 	H1Color                                string `json:"H1Color"`
 	H2Color                                string `json:"H2Color"`

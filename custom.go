@@ -81,10 +81,11 @@ func (dt *Custom) HTMLTemplate() string {
       padding: 0;
     }
     .email-footer {
-      width: {{ .Hermes.Style.EmailBodyWidth }}px;
+      width: 100% !important;
       margin: 0 auto;
       padding: 0;
       text-align: center;
+      background-color: {{ .Hermes.Style.FooterBackgroundColor }};
     }
     .email-footer p {
       color: {{ .Hermes.Style.FooterColor }};
@@ -199,6 +200,9 @@ func (dt *Custom) HTMLTemplate() string {
       color: {{ .Hermes.Style.TableDataColor }};
       font-size: 15px;
       line-height: 18px;
+    }
+    td.clear {
+      padding: 0px 0px;
     }
     .content {
       align: center;
@@ -489,7 +493,7 @@ func (dt *Custom) HTMLTemplate() string {
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="clear">
               <table class="email-footer" align="center" width="{{ .Hermes.Style.EmailBodyWidth }}" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-cell">
