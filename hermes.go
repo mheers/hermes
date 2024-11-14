@@ -151,6 +151,7 @@ type Button struct {
 	TextColor string
 	Text      string
 	Link      string
+	Position  string
 }
 
 // Template is the struct given to Golang templating
@@ -184,8 +185,8 @@ func setDefaultHermesValues(h *Hermes) error {
 		TextDirection: defaultTextDirection,
 		Product: Product{
 			Name:        "",
-			Copyright:   "Copyright © 2023. All rights reserved.",
-			TroubleText: "If you’re having trouble with the button '{ACTION}', copy and paste the URL below into your web browser.",
+			Copyright:   "Copyright © 2025. All rights reserved.",
+			TroubleText: "If you're having trouble with the button '{ACTION}', copy and paste the URL below into your web browser.",
 		},
 	}
 	// Merge the given hermes engine configuration with default one
